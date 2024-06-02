@@ -1,6 +1,4 @@
-package com.bibhu.learnjavabytebuddy.calculator;
-
-import com.bibhu.learnjavabytebuddy.log.Log;
+package com.bibhu.learnjavabytebuddy.log;
 
 import java.util.Arrays;
 

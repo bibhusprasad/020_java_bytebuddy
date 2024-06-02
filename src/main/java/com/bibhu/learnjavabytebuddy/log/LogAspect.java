@@ -1,6 +1,5 @@
 package com.bibhu.learnjavabytebuddy.log;
 
-import com.bibhu.learnjavabytebuddy.calculator.Calculator;
 import net.bytebuddy.agent.ByteBuddyAgent;
 import net.bytebuddy.agent.builder.AgentBuilder;
 import net.bytebuddy.implementation.MethodDelegation;
@@ -42,5 +41,5 @@ public class LogAspect {
 }
 
 //OP
-//sum method and class com.bibhu.learnjavabytebuddy.calculator.Calculator class is intercepted
+//sum method and class com.bibhu.learnjavabytebuddy.log.Calculator class is intercepted
 //Sum is : 60
