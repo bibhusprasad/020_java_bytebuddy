@@ -6,9 +6,12 @@ import net.bytebuddy.agent.builder.AgentBuilder;
 import net.bytebuddy.implementation.MethodDelegation;
 import net.bytebuddy.implementation.SuperMethodCall;
 import net.bytebuddy.implementation.bind.annotation.Origin;
+import net.bytebuddy.implementation.bind.annotation.RuntimeType;
+import net.bytebuddy.implementation.bind.annotation.SuperCall;
 
 import java.lang.instrument.Instrumentation;
 import java.lang.reflect.Method;
+import java.util.concurrent.Callable;
 
 public class LogAspect {
 
@@ -30,8 +33,11 @@ public class LogAspect {
                 .installOn(inst);
     }
 
-    public static void intercept(@Origin Method method) {
+    @RuntimeType
+    public static Object intercept(@Origin Method method, @SuperCall Callable<?> superCall) throws Exception {
+        method.getAnnotation(Log.class);
         System.out.println(method.getName() + " method and " + method.getDeclaringClass() + " class is intercepted");
+        return superCall.call();
     }
 }
 
